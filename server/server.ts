@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const pizzaRouter = require('./routes/pizza.router');
+app.use('/api/pizza', pizzaRouter);
+
 // start the Express server
 app.listen(PORT, () => {
     console.log(`server started on port: ${PORT}`);
