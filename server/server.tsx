@@ -1,13 +1,13 @@
-const express = require( "express" );
+const express = require('express');
 const app = express();
-const port = 8080; // default port to listen
+const PORT = process.env.PORT || 5000;
+const bodyParser = require('body-parser');
 
-// define a route handler for the default home page
-app.get( "/", ( req, res ) => {
-    res.send( "Hello world!" );
-} );
+// Body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // start the Express server
-app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
-} );
+app.listen(PORT, () => {
+    console.log(`server started on port: ${PORT}`);
+});
