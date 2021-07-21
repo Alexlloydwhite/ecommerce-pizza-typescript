@@ -1,6 +1,9 @@
-const pizzaReducer = (state=[], action: any) => {
+import { ActionType } from "../action-types";
+import { Action } from '../actions/index';
+
+const pizzaReducer = (state = [], action: Action) => {
     switch(action.type) {
-        case 'SET_PIZZAS':
+        case ActionType.pizzaList:
             return action.payload;
         default:
             return state;
