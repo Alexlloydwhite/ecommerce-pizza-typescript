@@ -17,9 +17,6 @@ export default function App() {
   return (
     <div>
       <h5>Pizza Time!</h5>
-      <pre>
-        {JSON.stringify(listOfPizza, null, 2)}
-      </pre>
     </div>
   );
 }
