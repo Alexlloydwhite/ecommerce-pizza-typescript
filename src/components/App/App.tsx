@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/_rootReducer";
 
+import Hero from '../Hero/Hero';
+
 export default function App() {
   const dispatch = useDispatch();
   const listOfPizza = useSelector((state: RootState) => {
@@ -16,7 +18,7 @@ export default function App() {
 
   return (
     <div>
-      <h5>Pizza Time!</h5>
+      <Hero />
     </div>
   );
 }
