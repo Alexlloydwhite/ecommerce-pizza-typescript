@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "./redux/reducers/_rootReducer";
+import { RootState } from "../../redux/reducers/_rootReducer";
 
 export default function App() {
   const dispatch = useDispatch();
