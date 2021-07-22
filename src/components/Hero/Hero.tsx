@@ -1,30 +1,85 @@
+import { makeStyles } from '@material-ui/core';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 import { useState } from 'react';
 
+import CheesePizza from './Images/CheesePizza.jpg';
+import MeatPizza from './Images/MeatPizza.jpg';
+import Restaurant from './Images/Restaurant.jpg';
+import Salad from './Images/Salad.jpg';
+import Takeout from './Images/Takeout.jpg';
+
 const images: string[] = [
-    "https://i.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY",
-    "https://i.picsum.photos/id/2/200/300.jpg?hmac=HiDjvfge5yCzj935PIMj1qOf4KtvrfqWX3j4z1huDaU",
-    "https://i.picsum.photos/id/3/200/300.jpg?hmac=o1-38H2y96Nm7qbRf8Aua54lF97OFQSHR41ATNErqFc"
-  ];
+    CheesePizza, MeatPizza, Salad, Restaurant, Takeout
+];
+
 
 export default function Hero() {
     const [imageIndex, setImageIndex] = useState(0);
 
-    const nextImage = (): void => {
-      setImageIndex((i) => (i + 1) % images.length);
+    const useStyles = makeStyles((theme) => {
+        return {
+            imageCarousel: {
+                position: 'relative',
+                backgroundColor: theme.palette.grey[800],
+                color: theme.palette.common.white,
+                backgroundImage: `url(${images[imageIndex]})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                height: 800,
+            },
+            overlay: {
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+                right: 0,
+                left: 0,
+                backgroundColor: 'rgba(0,0,0,.3)',
+            },
+            previousArrow: {
+                position: 'absolute',
+                top: '50%',
+                zIndex: 10,
+                left: 0,
+                cursor: 'pointer'
+            },
+            nextArrow: {
+                position: 'absolute',
+                top: '50%',
+                zIndex: 10,
+                right: 0,
+                cursor: 'pointer'
+            }
+        }
+    });
+    const classes = useStyles();
+
+
+    const nextImage = () => {
+        setImageIndex((i) => (i + 1) % images.length);
     }
-  
+
     const prevImage = (): void => {
-      if (imageIndex === 0) {
-        setImageIndex(images.length - 1)
-      } else {
-        setImageIndex((i) => i - 1)
-      }
+        if (imageIndex === 0) {
+            setImageIndex(images.length - 1)
+        } else {
+            setImageIndex((i) => i - 1)
+        }
     }
     return (
-        <div>
-            <button onClick={() => nextImage()}>Next!</button>
-            <button onClick={() => prevImage()}>Previous!</button>
-            <img src={images[imageIndex]} alt="" />
+        <div className={classes.imageCarousel}>
+            <div className={classes.overlay}>
+                <ArrowBackIosIcon
+                    onClick={() => prevImage()}
+                    className={classes.previousArrow}
+                />
+                <ArrowForwardIosIcon
+                    onClick={() => nextImage()}
+                    className={classes.nextArrow}
+                />
+            </div>
         </div>
     );
 }
