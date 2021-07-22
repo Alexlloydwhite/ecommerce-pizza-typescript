@@ -42,22 +42,23 @@ export default function Hero() {
                 position: 'absolute',
                 top: '50%',
                 zIndex: 10,
-                left: 0,
-                cursor: 'pointer'
+                left: 10,
+                cursor: 'pointer',
+                fontSize: '300%'
             },
             nextArrow: {
                 position: 'absolute',
                 top: '50%',
                 zIndex: 10,
                 right: 0,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                fontSize: '300%'
             }
         }
     });
     const classes = useStyles();
 
-
-    const nextImage = () => {
+    const nextImage = (): void => {
         setImageIndex((i) => (i + 1) % images.length);
     }
 
