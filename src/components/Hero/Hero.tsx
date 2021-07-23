@@ -1,24 +1,25 @@
+// MUI
 import { makeStyles } from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
+// React
 import { useState } from 'react';
-
+// Images
 import CheesePizza from './Images/CheesePizza.jpg';
 import MeatPizza from './Images/MeatPizza.jpg';
 import Restaurant from './Images/Restaurant.jpg';
 import Salad from './Images/Salad.jpg';
 import Takeout from './Images/Takeout.jpg';
 
+// Array of images
 const images: string[] = [
     CheesePizza, MeatPizza, Salad, Restaurant, Takeout
 ];
 
-
 export default function Hero() {
     // Index state used to cycle through images
     const [imageIndex, setImageIndex] = useState(0);
-    
+
     const useStyles = makeStyles((theme) => {
         return {
             imageCarousel: {
@@ -66,11 +67,9 @@ export default function Hero() {
 
     // Handle click, previous image
     const prevImage = (): void => {
-        if (imageIndex === 0) {
-            setImageIndex(images.length - 1);
-        } else {
-            setImageIndex((i) => i - 1);
-        }
+        imageIndex === 0 ?
+        setImageIndex(images.length - 1)
+        : setImageIndex((i) => i - 1)
     }
 
     return (
