@@ -16,8 +16,9 @@ const images: string[] = [
 
 
 export default function Hero() {
+    // Index state used to cycle through images
     const [imageIndex, setImageIndex] = useState(0);
-
+    
     const useStyles = makeStyles((theme) => {
         return {
             imageCarousel: {
@@ -58,17 +59,20 @@ export default function Hero() {
     });
     const classes = useStyles();
 
+    // Handles click, next image
     const nextImage = (): void => {
         setImageIndex((i) => (i + 1) % images.length);
     }
 
+    // Handle click, previous image
     const prevImage = (): void => {
         if (imageIndex === 0) {
-            setImageIndex(images.length - 1)
+            setImageIndex(images.length - 1);
         } else {
-            setImageIndex((i) => i - 1)
+            setImageIndex((i) => i - 1);
         }
     }
+
     return (
         <div className={classes.imageCarousel}>
             <div className={classes.overlay}>
