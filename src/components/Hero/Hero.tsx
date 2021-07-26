@@ -26,6 +26,10 @@ export default function Hero() {
                 position: 'relative',
                 backgroundColor: theme.palette.grey[800],
                 color: theme.palette.common.white,
+                height: 800,
+            },
+            image: {
+                position: 'relative',
                 backgroundImage: `url(${images[imageIndex]})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
@@ -55,7 +59,7 @@ export default function Hero() {
                 right: 0,
                 cursor: 'pointer',
                 fontSize: '300%'
-            }
+            },
         }
     });
     const classes = useStyles();
@@ -68,8 +72,8 @@ export default function Hero() {
     // Handle click, previous image
     const prevImage = (): void => {
         imageIndex === 0 ?
-        setImageIndex(images.length - 1)
-        : setImageIndex((i) => i - 1)
+            setImageIndex(images.length - 1)
+            : setImageIndex((i) => i - 1)
     }
 
     return (
@@ -79,6 +83,9 @@ export default function Hero() {
                     onClick={() => prevImage()}
                     className={classes.previousArrow}
                 />
+
+                <div className={classes.image} />
+
                 <ArrowForwardIosIcon
                     onClick={() => nextImage()}
                     className={classes.nextArrow}

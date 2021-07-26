@@ -4,10 +4,10 @@ import { RootState } from "../../redux/reducers/_rootReducer";
 
 import Hero from '../Hero/Hero';
 import Navbar from '../Navbar/Navbar';
-import Slider from '../Slider/Slider';
 
 export default function App() {
   const dispatch = useDispatch();
+  
   const listOfPizza = useSelector((state: RootState) => {
     return state.pizzas;
   });
@@ -20,7 +20,8 @@ export default function App() {
 
   return (
     <div>
-      <Slider />
+      <Navbar />
+      <Hero />
     </div>
   );
 }
