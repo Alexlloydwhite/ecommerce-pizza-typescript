@@ -4,6 +4,7 @@ import { RootState } from "../../redux/reducers/_rootReducer";
 
 import Hero from '../Hero/Hero';
 import Navbar from '../Navbar/Navbar';
+import Slider from '../Slider/Slider';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -19,8 +20,7 @@ export default function App() {
 
   return (
     <div>
-      <Navbar />
-      <Hero />
+      <Slider />
     </div>
   );
 }
